@@ -1,0 +1,1 @@
+python -c "from main import run_file; print(run_file('examples/input1.txt'))"

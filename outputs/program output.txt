@@ -1,0 +1,10 @@
+ PROGRAM OUTPUT (IR RUNNER) ---
+sample run
+--- PROGRAM OUTPUT (IR RUNNER) ---
+sample run
+sample run
+7
+small
+1
+2
+3

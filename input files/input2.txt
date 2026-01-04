@@ -1,0 +1,12 @@
+x = 2
+y = (x + 3) * 4
+atim y        
+kehone y > 10 {
+    atim y
+} kalhone {
+    atim 0
+}
+ke i = 1 eske 3 {
+    atim i
+}
+

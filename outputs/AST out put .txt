@@ -1,0 +1,31 @@
+--- AST ---
+Assign(title)
+  Str("sample run")
+Assign(x)
+  Num(2)
+Assign(y)
+  BinOp(PLUS)
+    BinOp(MUL)
+      Var(x)
+      Num(2)
+    Num(3)
+Print
+  Var(title)
+Print
+  Var(y)
+If
+  BinOp(GT)
+    Var(y)
+    Num(10)
+  TrueBlock
+    Print
+      Str("big")
+  FalseBlock
+    Print
+      Str("small")
+For(i)
+  Num(1)
+  Num(3)
+  Body
+    Print
+      Var(i)

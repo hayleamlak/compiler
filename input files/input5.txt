@@ -1,0 +1,33 @@
+title = "mini compiler "
+count = 3
+sum = 0
+flag = ewnet
+
+atim "-- start --"
+
+kehone flag {
+    atim "flag is true"
+}
+
+ke i = 1 eske count {
+    sum = sum + i
+    atim i
+}
+
+avg = sum / count
+
+kehone avg >= 2 {
+    atim "avg ok"
+} kalhone {
+    atim "avg low"
+}
+
+kehone title == "mini compiler demo" {
+    atim "title matches"
+}
+
+atim sum
+atim avg
+atim title
+atim "-- end --"
+

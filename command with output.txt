@@ -1,0 +1,247 @@
+ COMMAND 
+python -c "from main import run_file; print(run_file('examples/input1.txt'))"
+
+python ide.py -> to open the GUI
+
+
+--- LEXER OUTPUT ---
+
+IDENTIFIER:title
+ASSIGN:=
+STRING:sample run
+IDENTIFIER:x
+ASSIGN:=
+INTEGER:2
+IDENTIFIER:y
+ASSIGN:=
+IDENTIFIER:x
+MUL:*
+INTEGER:2
+PLUS:+
+INTEGER:3
+PRINT:atim
+IDENTIFIER:title
+PRINT:atim
+IDENTIFIER:y
+IF:kehone
+IDENTIFIER:y
+GT:>
+INTEGER:10
+LBRACE:{
+PRINT:atim
+STRING:big
+RBRACE:}
+ELSE:kalhone
+LBRACE:{
+PRINT:atim
+STRING:small
+RBRACE:}
+FOR:ke
+IDENTIFIER:i
+ASSIGN:=
+INTEGER:1
+TO:eske
+INTEGER:3
+LBRACE:{
+PRINT:atim
+IDENTIFIER:i
+RBRACE:}
+
+--- AST ---
+Assign(title)
+  Str("sample run")
+Assign(x)
+  Num(2)
+Assign(y)
+  BinOp(PLUS)
+    BinOp(MUL)
+      Var(x)
+      Num(2)
+    Num(3)
+Print
+  Var(title)
+Print
+  Var(y)
+If
+  BinOp(GT)
+    Var(y)
+    Num(10)
+  TrueBlock
+    Print
+      Str("big")
+  FalseBlock
+    Print
+      Str("small")
+For(i)
+  Num(1)
+  Num(3)
+  Body
+    Print
+      Var(i)
+
+--- SEMANTIC ANALYSIS ---
+<no semantic errors>
+
+--- IR ---
+000: LOAD_CONST(sample run) -> t1
+001: STORE(title, t1)
+002: LOAD_CONST(2) -> t2
+003: STORE(x, t2)
+004: LOAD_VAR(x) -> t3
+005: LOAD_CONST(2) -> t4
+006: BIN_OP(t3, MUL, t4) -> t5
+007: LOAD_CONST(3) -> t6
+008: BIN_OP(t5, PLUS, t6) -> t7
+009: STORE(y, t7)
+010: LOAD_VAR(title) -> t8
+011: PRINT(t8)
+012: LOAD_VAR(y) -> t9
+013: PRINT(t9)
+014: LOAD_VAR(y) -> t10
+015: LOAD_CONST(10) -> t11
+016: BIN_OP(t10, GT, t11) -> t12
+017: JMP_IF_FALSE(t12, else_1)
+018: LOAD_CONST(big) -> t13
+019: PRINT(t13)
+020: JMP(endif_2)
+021: else_1: LABEL()
+022: LOAD_CONST(small) -> t14
+023: PRINT(t14)
+024: endif_2: LABEL()
+025: LOAD_CONST(1) -> t15
+026: LOAD_CONST(3) -> t16
+027: STORE(i, t15)
+028: MOVE(t16) -> t17
+029: for_3: LABEL()
+030: LOAD_VAR(i) -> t18
+031: BIN_OP(t18, LTE, t17) -> t19
+032: JMP_IF_FALSE(t19, endfor_4)
+033: LOAD_VAR(i) -> t20
+034: PRINT(t20)
+035: LOAD_VAR(i) -> t21
+036: LOAD_CONST(1) -> t22
+037: BIN_OP(t21, PLUS, t22) -> t23
+038: STORE(i, t23)
+039: JMP(for_3)
+040: endfor_4: LABEL()
+
+--- OPTIMIZED IR ---
+000: LOAD_CONST(sample run) -> t1
+001: STORE(title, t1)
+002: LOAD_CONST(2) -> t2
+003: STORE(x, t2)
+004: LOAD_VAR(x) -> t3
+005: LOAD_CONST(2) -> t4
+006: BIN_OP(t3, MUL, t4) -> t5
+007: LOAD_CONST(3) -> t6
+008: BIN_OP(t5, PLUS, t6) -> t7
+009: STORE(y, t7)
+010: LOAD_VAR(title) -> t8
+011: PRINT(t8)
+012: LOAD_VAR(y) -> t9
+013: PRINT(t9)
+014: LOAD_VAR(y) -> t10
+015: LOAD_CONST(10) -> t11
+016: BIN_OP(t10, GT, t11) -> t12
+017: JMP_IF_FALSE(t12, else_1)
+018: LOAD_CONST(big) -> t13
+019: PRINT(t13)
+020: JMP(endif_2)
+021: else_1: LABEL()
+022: LOAD_CONST(small) -> t14
+023: PRINT(t14)
+024: endif_2: LABEL()
+025: LOAD_CONST(1) -> t15
+026: LOAD_CONST(3) -> t16
+027: STORE(i, t15)
+028: MOVE(t16) -> t17
+029: for_3: LABEL()
+030: LOAD_VAR(i) -> t18
+031: BIN_OP(t18, LTE, t17) -> t19
+032: JMP_IF_FALSE(t19, endfor_4)
+033: LOAD_VAR(i) -> t20
+034: PRINT(t20)
+035: LOAD_VAR(i) -> t21
+036: LOAD_CONST(1) -> t22
+037: BIN_OP(t21, PLUS, t22) -> t23
+038: STORE(i, t23)
+039: JMP(for_3)
+040: endfor_4: LABEL()
+
+--- ASSEMBLY (FROM OPTIMIZED IR) ---
+MOV t1, 'sample run'
+MOV [title], t1
+MOV t2, 2
+MOV [x], t2
+MOV t3, [x]
+MOV t4, 2
+MUL t5, t3, t4
+MOV t6, 3
+ADD t7, t5, t6
+MOV [y], t7
+MOV t8, [title]
+PRINT t8
+MOV t9, [y]
+PRINT t9
+MOV t10, [y]
+MOV t11, 10
+CMPGT t12, t10, t11
+JMPF t12, else_1
+MOV t13, 'big'
+PRINT t13
+JMP endif_2
+else_1:
+MOV t14, 'small'
+PRINT t14
+endif_2:
+MOV t15, 1
+MOV t16, 3
+MOV [i], t15
+MOV t17, t16
+for_3:
+MOV t18, [i]
+CMPLE t19, t18, t17
+JMPF t19, endfor_4
+MOV t20, [i]
+PRINT t20
+MOV t21, [i]
+MOV t22, 1
+ADD t23, t21, t22
+MOV [i], t23
+JMP for_3
+MOV t17, t16
+for_3:
+MOV t18, [i]
+CMPLE t19, t18, t17
+JMPF t19, endfor_4
+MOV t20, [i]
+PRINT t20
+MOV t21, [i]
+MOV t22, 1
+ADD t23, t21, t22
+MOV [i], t23
+JMP for_3
+MOV t21, [i]
+MOV t22, 1
+ADD t23, t21, t22
+MOV [i], t23
+JMP for_3
+MOV [i], t23
+JMP for_3
+JMP for_3
+endfor_4:
+
+--- PROGRAM OUTPUT (IR RUNNER) ---
+sample run
+--- PROGRAM OUTPUT (IR RUNNER) ---
+sample run
+sample run
+7
+small
+1
+2
+7
+small
+1
+2
+3
