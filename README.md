@@ -19,9 +19,6 @@ MiniCompiler is a compact educational compiler/interpreter designed to demonstra
 git clone https://github.com/hayleamlak/MiniCompiler.git
 cd MiniCompiler
 
-
-## Language Features
-
 - Integers, identifiers, arithmetic (+ - * /)
 - Comparisons (== != < > <= >=)
 - Variable assignment (x = expr)
