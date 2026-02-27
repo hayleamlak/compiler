@@ -96,7 +96,7 @@ MiniCompiler/
 └── main.py
 ```
 
-## Conclusion
+ Conclusion
 
 MiniCompiler demonstrates the internal workflow of a programming language in a clear and extensible way, making it ideal for learning compiler design and language implementation.
 
