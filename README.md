@@ -24,7 +24,7 @@ cd MiniCompiler
 - Booleans: `ewnet` (true), `haset` (false)
 - Double-quoted string literals
 
-## Localized Keywords
+Localized Keywords
 
 | Purpose | Keyword |
 | ------- | ------- |
