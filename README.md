@@ -94,9 +94,7 @@ MiniCompiler/
 │   └── strings.txt
 ├── ide.py
 └── main.py
-```
-
- Conclusion
+```conclusion
 
 MiniCompiler demonstrates the internal workflow of a programming language in a clear and extensible way, making it ideal for learning compiler design and language implementation.
 
