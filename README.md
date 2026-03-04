@@ -2,7 +2,6 @@ MiniCompiler
 
 Educational Compiler & Interpreter for a Localized Language
 
-
 Overview
 
 MiniCompiler is a compact educational compiler/interpreter designed to demonstrate core compiler design concepts such as lexical analysis, parsing, AST generation, and interpretation using a localized, readable syntax.
