@@ -1,4 +1,4 @@
-# MiniCompiler
+MiniCompiler
 
 **Educational Compiler & Interpreter for a Localized Language**
 
@@ -72,8 +72,7 @@ atim avg
 atim title
 atim "-- end --"
 ```
-
-## How to Run (CLI)
+ How to Run (CLI)
 
 ```bash
 python -c "from main import run_file; print(run_file('examples/all_in_one.txt'))"
