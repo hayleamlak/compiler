@@ -11,7 +11,7 @@ MiniCompiler is a compact educational compiler/interpreter designed to demonstra
 ## How to Clone & Run
 
 1. Clone the repository
-```bash
+bash
 git clone https://github.com/hayleamlak/MiniCompiler.git
 cd MiniCompiler
 
