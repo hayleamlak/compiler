@@ -1,6 +1,7 @@
 MiniCompiler
 
-Educational Compiler & Interpreter for a Localized Language**
+Educational Compiler & Interpreter for a Localized Language
+
 
 Overview
 
