@@ -1,6 +1,5 @@
 MiniCompiler by using python
 
-
 Educational Compiler & Interpreter for a Localized Language
 
 Overview
