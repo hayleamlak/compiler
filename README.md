@@ -8,7 +8,6 @@ MiniCompiler is a compact educational compiler/interpreter designed to demonstra
 Requirements
 - Python 3.8+ (standard library only)
 -  How to Clone & Run
--  
 
 1. Clone the repository
 bash
