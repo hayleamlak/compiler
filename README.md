@@ -53,7 +53,6 @@ ke i = 1 eske count {
 }
 
 avg = sum / count
-
 kehone avg >= 2 {
     atim "avg ok"
 } kalhone {
