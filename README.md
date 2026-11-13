@@ -10,7 +10,6 @@ Requirements
 bash
 git clone https://github.com/hayleamlak/MiniCompiler.git
 cd MiniCompiler
-
 - Integers, identifiers, arithmetic (+ - * /)
 - Comparisons (== != < > <= >=)
 - Variable assignment (x = expr)
