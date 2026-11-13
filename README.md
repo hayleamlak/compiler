@@ -21,7 +21,6 @@ cd MiniCompiler
 
 Localized Keywords
 
-
 | Purpose | Keyword |
 | ------- | ------- |
 | Print   | `atim`  |
