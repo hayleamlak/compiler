@@ -8,7 +8,7 @@ Requirements
 -  How to Clone & Run
 1. Clone the repository
 bash
-git clone https://github.com/hayleamlak/MiniCompiler.git
+git clon https://github.com/hayleamlak/MiniCompiler.git
 cd MiniCompiler
 - Integers, identifiers, arithmetic (+ - * /)
 - Comparisons (== != < > <= >=)
