@@ -1,4 +1,4 @@
-MiniCompiler by using python
+iMiniCompiler by using python
 
 Educational Compiler & Interpreter for a Localized Language
 Overview
