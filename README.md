@@ -18,7 +18,6 @@ cd MiniCompiler
 - For-loops using `ke ... eske`
 - Booleans: `ewnet` (true), `haset` (false)
 - Double-quoted string literals
-
 Localized Keywords
 
 | Purpose | Keyword |
